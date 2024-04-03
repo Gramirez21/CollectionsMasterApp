@@ -8,6 +8,8 @@ namespace CollectionsMasterConsoleUI
     {
         static void Main(string[] args)
         {
+
+
             //TODO: Follow the steps provided in the comments under each region.
             //Make the console formatted to display each section well
             //Utlilize the method stubs at the bottom for the methods you must create ⬇⬇⬇
@@ -19,6 +21,8 @@ namespace CollectionsMasterConsoleUI
 
             //TODO: Create a method to populate the number array with 50 random numbers that are between 0 and 50
 
+            Populater(numbers);
+            //NumberPrinter(numbers);
 
             //TODO: Print the first number of the array
 
@@ -42,9 +46,15 @@ namespace CollectionsMasterConsoleUI
 
             Console.WriteLine("All Numbers Reversed:");
 
+            Array.Reverse(numbers);
+
+            NumberPrinter(numbers);
+
             Console.WriteLine("---------REVERSE CUSTOM------------");
 
             ReverseArray(numbers);
+
+            NumberPrinter(numbers);
 
             Console.WriteLine("-------------------");
 
@@ -52,6 +62,8 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("Multiple of three = 0: ");
 
             ThreeKiller(numbers);
+
+            NumberPrinter(numbers);
 
 
             Console.WriteLine("-------------------");
@@ -79,8 +91,11 @@ namespace CollectionsMasterConsoleUI
             //TODO: Print the capacity of the list to the console
             Console.WriteLine($"{numberList.Capacity}");
 
-            //TODO: Populate the List with 50 random numbers between 0 and 50 you will need a method for this            
+            //TODO: Populate the List with 50 random numbers between 0 and 50 you will need a method for this
+            //
 
+            Populater(numberList);
+            NumberPrinter(numberList);
 
             //TODO: Print the new capacity
 
@@ -101,6 +116,8 @@ namespace CollectionsMasterConsoleUI
                 isANumber = int.TryParse(Console.ReadLine(), out userName);
 
             } while (isANumber == false);
+
+            NumberChecker(numberList, userName);
 
             Console.WriteLine("-------------------");
 
@@ -179,7 +196,7 @@ namespace CollectionsMasterConsoleUI
 
         private static void Populater(List<int> numberList)
         {
-            while (numberList.Count > 51)
+            while (numberList.Count < 51)
             {
                 Random rng = new Random();
                 var numbers = rng.Next(0, 50);
